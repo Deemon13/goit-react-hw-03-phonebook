@@ -1,13 +1,9 @@
-// IMPORT
 import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
-// CSS-IN-JS
-
 const List = styled.ul`
   max-width: 50rem;
 `;
-
 const ListItem = styled.li`
   display: flex;
   align-self: center;
@@ -18,7 +14,6 @@ const ListItem = styled.li`
     margin-bottom: none;
   }
 `;
-
 const Button = styled.button`
   display: inline-block;
   right: 0;
@@ -32,8 +27,6 @@ const Button = styled.button`
     outline: none;
   }
 `;
-
-// REACT COMPONENT
 const ContactList = ({ contacts, onDeleteContact }) => (
   <List>
     {contacts.map(({ id, name, number }) => (
@@ -48,7 +41,6 @@ const ContactList = ({ contacts, onDeleteContact }) => (
     ))}
   </List>
 );
-// PROP-TYPES
 ContactList.propTypes = {
   contacts: PropTypes.oneOfType([
     PropTypes.arrayOf(
@@ -61,5 +53,4 @@ ContactList.propTypes = {
     PropTypes.array
   ])
 };
-// EXPORT
 export default ContactList;

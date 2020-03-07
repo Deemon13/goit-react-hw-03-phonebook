@@ -1,18 +1,14 @@
-// IMPORT
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
-// CSS-IN-JS
 const Form = styled.form`
   display: flex;
   flex-direction: column;
   max-width: 50rem;
 `;
-
 const Label = styled.label`
   font-size: 1.8rem;
 `;
-
 const Input = styled.input`
   font-size: 1.8rem;
   width: 25rem;
@@ -21,7 +17,6 @@ const Input = styled.input`
   padding: 0.1rem 0.5rem;
   border-radius: 0.5rem;
 `;
-
 const Button = styled.button`
   display: block;
   font-size: 1.8rem;
@@ -37,7 +32,6 @@ const Button = styled.button`
     outline: none;
   }
 `;
-// REACT COMPONENT
 export default class ContactForm extends Component {
   static propTypes = {
     onAddContact: PropTypes.func
@@ -82,7 +76,9 @@ export default class ContactForm extends Component {
             name="number"
           />
         </Label>
-        <Button type="submit">Add contact</Button>
+        <Button type="submit" disabled={!name || !number}>
+          Add contact
+        </Button>
       </Form>
     );
   }

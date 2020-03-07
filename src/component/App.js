@@ -1,6 +1,5 @@
-// IMPORT
+// COMPONENTS
 import React, { Component } from "react";
-// IMPORT COMPONENTS
 import Layout from "./Layout/Layout";
 import Section from "./Section/Section";
 import ContactList from "./ContactList/ContactList";
@@ -8,13 +7,7 @@ import ContactForm from "./ContactForm/ContactForm";
 import Filter from "./Filter/Filter";
 // UTILS
 import { uuid } from "uuidv4";
-
-// REACT COMPONENT-CLASS
 export default class App extends Component {
-  static propTypes = {};
-
-  static defaultProps = {};
-
   state = {
     contacts: [
       { id: "id-1", name: "Rosie Simpson", number: "459-12-56" },
@@ -24,7 +17,6 @@ export default class App extends Component {
     ],
     filter: ""
   };
-
   addContact = (name, number) => {
     const contact = {
       id: uuid(),
@@ -41,20 +33,15 @@ export default class App extends Component {
       return;
     }
 
-    this.setState(prevState => {
-      return {
-        contacts: [...prevState.contacts, contact]
-      };
-    });
-    console.log(contact);
+    this.setState(prevState => ({
+      contacts: [...prevState.contacts, contact]
+    }));
   };
 
   deleteContact = contactId => {
-    this.setState(prevState => {
-      return {
-        contacts: prevState.contacts.filter(({ id }) => id !== contactId)
-      };
-    });
+    this.setState(prevState => ({
+      contacts: prevState.contacts.filter(({ id }) => id !== contactId)
+    }));
   };
 
   changeFilter = filter => {
